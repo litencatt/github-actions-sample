@@ -6,10 +6,7 @@ jobs:
     name: Save output
     steps:
       - shell: bash
+        env:
+          SECRET_TXT: ${{ secrets.SECRETE_TEST_1 }}
         run: |
-          expr 1 + 1 > output.log
-      - name: Upload output file
-        uses: actions/upload-artifact@v1
-        with:
-          name: output-log-file
-          path: output.log
+          echo $SECRET_TXT
