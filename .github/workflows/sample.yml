@@ -4,6 +4,17 @@ jobs:
   example-job:
     runs-on: ubuntu-latest
     name: Save output
+    services:
+      mysql:
+        image: mysql:5.6
+        options: >-
+          --health-cmd "mysqladmin ping -h localhost"
+          --health-interval 20s
+          --health-timeout 10s
+          --health-retries 10
+        env:
+          MYSQL_USER: root
+          MYSQL_ROOT_PASSWORD: password
     steps:
       - shell: bash
         env:
