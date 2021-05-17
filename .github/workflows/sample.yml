@@ -20,3 +20,4 @@ jobs:
           SECRET_TXT: ${{ secrets.SECRETE_TEST_1 }}
         run: |
           echo $SECRET_TXT
+          docker-compose
